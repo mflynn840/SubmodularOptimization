@@ -12,8 +12,8 @@ public interface Optimizer<E> {
 
     
     //what function im optimizing
-    public void setFunction();
-    public void getFunction();
+    public void setFunction(SubmodularFunction<E> f);
+    public SubmodularFunction<E> getFunction();
 
     
     public void maximize();
