@@ -64,9 +64,37 @@ public class WoolseyGreedy<E> implements Interfaces.Optimizer<E>, Runnable{
         int groundSetUtility = this.function.evaluate(this.groundSet);
 
 
+        boolean firstRound = true;
         int bestMarginalGain = -1;
+        Point bestPoint;
 
         while((this.function.evaluate(this.selected) < groundSetUtility) && (this.selected.size() < this.k)){
+
+            if (firstRound){
+                
+
+                //???? pick a random point to use as basis for selected subset?
+                this.selected.add(this.groundSet.itemAt());
+                //evaluate the maringal gain of adding each point to selected
+
+
+                for(int i = 0; i<this.groundSet.size(); i++){
+
+                    this.weights[i] = this.function.evaluate(this.selected.union(this.groundSet.itemAt(i)));
+                
+
+                }
+
+                firstRound = false;
+
+            }
+            bestPoint = this.selectionStrategy();
+            bestMarginalGain = bestPoint.marginalGain;
+
+
+
+            
+
 
             
 
