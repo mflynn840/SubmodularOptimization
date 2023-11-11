@@ -7,7 +7,7 @@ public class Dataset {
     int[] labels;
     String name;
 
-    public Dataset(String name, String model, int[] labels){
+    public Dataset(String name, float[][] data, int[] labels){
 
         this.name = name;
         this.data = data;
